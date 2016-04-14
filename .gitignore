@@ -1,0 +1,12 @@
+# Compiled binary addons (http://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directory
+node_modules
+
+# IDE settings
+.idea
+.DS_Store
+
+#bundle.js
+*bundle.js
