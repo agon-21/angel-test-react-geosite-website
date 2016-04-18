@@ -6,4 +6,4 @@ to install the node-modules
 
 Then open a terminal on the repository root directory, and run:
 
-npm start
+    npm start
