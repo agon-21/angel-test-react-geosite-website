@@ -7,6 +7,7 @@ let ActionTypes = WebConstants.ActionTypes;
 let CHANGE_EVENT = 'change';
 
 let _cities = [];
+let _businesses = [];
 
 class CityStore extends EventEmitter {
 
@@ -39,6 +40,10 @@ class CityStore extends EventEmitter {
     getAllCities () {
         return _cities;
     }
+
+    getBusinesses () {
+        return _businesses
+    }
 }
 
 let CityStoreInstance = new CityStore();
@@ -48,6 +53,26 @@ CityStoreInstance.dispatchToken = WebDispatcher.register(action => {
     switch (action.type) {
         case ActionTypes.GET_CITIES:
             _cities = action.cities;
+            CityStoreInstance.emitChange();
+            break;
+        case ActionTypes.GET_BUSINESSES:
+            _businesses = action.businesses;
+            CityStoreInstance.emitChange();
+            break;
+        case ActionTypes.BUSINESS_UPDATED:
+            for (var b in _businesses) {
+                if (_businesses[b].id = action.businessId) {
+                    _businesses[b].address = action.newAddress;
+                }
+            }
+            CityStoreInstance.emitChange();
+            break;
+        case ActionTypes.BUSINESS_DELETED:
+            for (var b in _businesses) {
+                if (_businesses[b].id = action.businessId) {
+                    _businesses.splice(b, 1);;
+                }
+            }
             CityStoreInstance.emitChange();
             break;
         default:
