@@ -1,8 +1,9 @@
 # angel-test-react-geosite-website
-angel-test-react-geosite-website
+Git clone the repository, and once inside the project, type:
 
-git clone the repository, and then:
+    npm i
+to install the node-modules
 
-open a terminal on the repository root directory, and run:
+Then open a terminal on the repository root directory, and run:
 
 npm start
